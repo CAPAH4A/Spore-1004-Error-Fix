@@ -29,7 +29,9 @@ cls
 echo.&echo.&echo.&echo.&echo.&echo.&echo.
 echo %s24%    %z%%er%
 echo %s24%         by 0KepOnline
-echo.&echo.&echo.
+echo.
+echo.
+echo.
 echo %s24%   1 +%e% - Patch %z%
 echo %s24% 2 +%e% - Patch %z%: GA
 echo %s24% 3 +%e% - Patch %z%: C^&C
@@ -41,7 +43,9 @@ cls
 echo.&echo.&echo.&echo.&echo.&echo.&echo.
 echo %s24%  ####   %p% %ss%  ####
 echo %s24%%pv%1.1)
-echo.&echo.&echo.
+echo.
+echo.
+echo.
 echo %s24% Drag the [%z%App.exe] here,
 echo %s24%        then tap%e%.
 echo %s24%  It's in [%z%Bin] folder.
@@ -78,7 +82,10 @@ goto completed
 cls
 echo.&echo.&echo.&echo.&echo.&echo.&echo.
 echo %s24%  ####     COMPLETED    ####
-echo.&echo.&echo.&echo.
+echo.
+echo.
+echo.
+echo.
 echo %s24%        What to do now?
 echo %s24%  1 +%e% - Go to Main Menu
 echo %s24%    %e% - Close program
@@ -91,7 +98,9 @@ cls
 echo.&echo.&echo.&echo.&echo.&echo.&echo.
 echo %s24%  ##   %p% %ss%: GA  ##
 echo %s24%%pv%1.1)
-echo.&echo.&echo.
+echo.
+echo.
+echo.
 echo %s24% Drag the [%z%App.exe] here,
 echo %s24%       then tap%e%.
 echo %s24% It's in [%z%bin_EP1] folder.
@@ -124,7 +133,9 @@ cls
 echo.&echo.&echo.&echo.&echo.&echo.&echo.&echo.
 echo %s24% ##   %p% %ss%: C^&C  ##
 echo %s24%%pv%1.0)
-echo.&echo.&echo.
+echo.
+echo.
+echo.
 echo %s24%           Drag the
 echo %s24%   [BoosterPack_01.package]
 echo %s24%      here, then tap%e%.
@@ -154,7 +165,10 @@ if errorlevel 1 (goto accessdenied) else (title %appt%&goto completed)
 cls
 echo.&echo.&echo.&echo.&echo.&echo.&echo.
 echo %s24% ######   WRONG PATH   ######
-echo.&echo.&echo.&echo.
+echo.
+echo.
+echo.
+echo.
 echo %s24%%t%get back to
 echo %s24%        the main menu.
 echo.&echo.&echo.&echo.&echo.&echo.&echo.&echo.&echo.&echo.
@@ -164,7 +178,10 @@ goto menu
 cls
 echo.&echo.&echo.&echo.&echo.&echo.&echo.&echo.&echo.
 echo %s24% ####    ACCESS DENIED   ####
-echo.&echo.&echo.&echo.
+echo.
+echo.
+echo.
+echo.
 echo %s24% Please, restart this program
 echo %s24%  with administrator rights.
 echo.

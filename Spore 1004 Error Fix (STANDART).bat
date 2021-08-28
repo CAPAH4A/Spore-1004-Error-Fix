@@ -28,6 +28,11 @@ set sp=HKLM\SOFTWARE\Electronic Arts\SPORE
 set sp64=HKLM\SOFTWARE\Wow6432node\Electronic Arts\SPORE
 set cc=HKLM\SOFTWARE\Electronic Arts\SPORE Creepy and Cute Parts Pack
 set cc64=HKLM\SOFTWARE\Wow6432node\Electronic Arts\SPORE Creepy and Cute Parts Pack
+set ns=nstall
+set dw= /t REG_DWORD /d 
+set sz= /t REG_SZ /d 
+set sb= /t REG_SZ /f
+set dwf= /t REG_DWORD /f 
 set s24=                        
 :menu
 cls
@@ -88,23 +93,23 @@ set sporepath=%exedir:~0,-22%
 title %appt%[PATCHING]
 reg add "%sp:~0,-6%"
 reg add "%sp%"
-reg add "%sp%" /v appdir /t REG_SZ /d Spore /f
-reg add "%sp%" /v datadir /t REG_SZ /d %sporepath%\Data /f
-reg add "%sp%" /v installcompleted /t REG_DWORD /d 1 /f
-reg add "%sp%" /v installloc /t REG_SZ /d %sporepath% /f
-reg add "%sp%" /v playerdir /t REG_SZ /f /d "My Spore Creations"
-reg add "%sp%" /v reindexyesorno /t REG_DWORD /d 0 /f
-reg add "%sp%" /v SKUID /t REG_DWORD /d 0 /f
+reg add "%sp%" /v appdir%sz%Spore /f
+reg add "%sp%" /v datadir%sz%"%sporepath%\Data" /f
+reg add "%sp%" /v i%ns%completed%dw%1 /f
+reg add "%sp%" /v i%ns%loc%sz%"%sporepath%" /f
+reg add "%sp%" /v playerdir%sb% /d "My Spore Creations"
+reg add "%sp%" /v reindexyesorno%dw%0 /f
+reg add "%sp%" /v SKUID%dw%0 /f
 reg add "%sp64:~0,-22%"
 reg add "%sp64:~0,-6%"
 reg add "%sp64%"
-reg add "%sp64%" /v appdir /t REG_SZ /d Spore /f
-reg add "%sp64%" /v datadir /t REG_SZ /d %sporepath%\Data /f
-reg add "%sp64%" /v installcompleted /t REG_DWORD /d 1 /f
-reg add "%sp64%" /v installloc /t REG_SZ /d %sporepath% /f
-reg add "%sp64%" /v playerdir /t REG_SZ /f /d "My Spore Creations"
-reg add "%sp64%" /v reindexyesorno /t REG_DWORD /d 0 /f
-reg add "%sp64%" /v SKUID /t REG_DWORD /d 0 /f
+reg add "%sp64%" /v appdir%sz%"Spore" /f
+reg add "%sp64%" /v datadir%sz%%sporepath%\Data /f
+reg add "%sp64%" /v i%ns%completed%dw%1 /f
+reg add "%sp64%" /v i%ns%loc%sz%%sporepath% /f
+reg add "%sp64%" /v playerdir%sb% /d "My Spore Creations"
+reg add "%sp64%" /v reindexyesorno%dw%0 /f
+reg add "%sp64%" /v SKUID%dw%0 /f
 if errorlevel 1 (goto accessdenied) else (title %appt%&goto completed)
 title %appt%
 goto completed
@@ -167,19 +172,19 @@ set sporegapath=%exedir:~0,-25%
 title %appt%[PATCHING]
 reg add "%ep:~0,-10%"
 reg add "%ep%"
-reg add "%ep%" /v AddOnID /t REG_DWORD /d 2 /f
-reg add "%ep%" /v DataDir /t REG_SZ /d %sporegapath%\DataEP1\ /f
-reg add "%ep%" /v InstallLoc /t REG_SZ /d %sporegapath% /f
-reg add "%ep%" /v PackID /t REG_DWORD /f /d 0x7a7f786
-reg add "%ep%" /v ProductKey /t REG_SZ /f
+reg add "%ep%" /v AddOnID%dw%2 /f
+reg add "%ep%" /v DataDir%sz%"%sporegapath%\DataEP1\" /f
+reg add "%ep%" /v I%ns%Loc%sz%"%sporegapath%" /f
+reg add "%ep%" /v PackID%dwf%/d 0x7a7f786
+reg add "%ep%" /v ProductKey%sb%
 reg add "%ep64:~0,-26%"
 reg add "%ep64:~0,-10%"
 reg add "%ep64%"
-reg add "%ep64%" /v AddOnID /t REG_DWORD /d 2 /f
-reg add "%ep64%" /v DataDir /t REG_SZ /d %sporegapath%\DataEP1\ /f
-reg add "%ep64%" /v InstallLoc /t REG_SZ /d %sporegapath% /f
-reg add "%ep64%" /v PackID /t REG_DWORD /f /d 0x7a7f786
-reg add "%ep64%" /v ProductKey /t REG_SZ /f
+reg add "%ep64%" /v AddOnID%dw%2 /f
+reg add "%ep64%" /v DataDir%sz%"%sporegapath%\DataEP1\" /f
+reg add "%ep64%" /v I%ns%Loc%sz%"%sporegapath%" /f
+reg add "%ep64%" /v PackID%dwf%/d 0x7a7f786
+reg add "%ep64%" /v ProductKey%sb%
 if errorlevel 1 (goto accessdenied) else (title %appt%&goto completed)
 title %appt%
 :invp
@@ -234,23 +239,23 @@ echo %asciik%
 echo.&echo.&echo.&echo.&echo.
 set /p exedir=
 set exedir=%exedir:"=%
-if %exedir:~0,-25%=="" (goto invp) else (goto sporeccpatch)
+if "%exedir:~0,-25%"=="" (goto invp) else (goto sporeccpatch)
 :sporeccpatch
-set sporeccpath=%exedir:~0,-22%
-title %appt%[PATCHING]
+set sccp=%exedir:~0,-22%
+title %appt%[%p%]
 reg add "%cc:~0,-33%"
 reg add "%cc%"
-reg add "%cc%" /v AddOnID /t REG_DWORD /d 1 /f
-reg add "%cc%" /v DataDir /t REG_SZ /f /d %sporeccpath%
-reg add "%cc%" /v PackID /t REG_DWORD /d 0x06f4b5d1 /f
-reg add "%cc%" /v ProductKey /t REG_SZ /f
+reg add "%cc%" /v AddOnID%dw%1 /f
+reg add "%cc%" /v DataDir%sz%"%sccp%\
+reg add "%cc%" /v PackID%dw%0x06f4b5d1 /f
+reg add "%cc%" /v ProductKey%sb%
 reg add "%cc64:~0,-49%"
 reg add "%cc64:~0,-33%"
 reg add "%cc64%"
-reg add "%cc64%" /v AddOnID /t REG_DWORD /d 1 /f
-reg add "%cc64%" /v DataDir /t REG_SZ /f /d %sporeccpath%
-reg add "%cc64%" /v PackID /t REG_DWORD /d 0x06f4b5d1 /f
-reg add "%cc64%" /v ProductKey /t REG_SZ /f
+reg add "%cc64%" /v AddOnID%dw%1 /f
+reg add "%cc64%" /v DataDir%sz%"%sccp%\
+reg add "%cc64%" /v PackID%dw%0x06f4b5d1 /f
+reg add "%cc64%" /v ProductKey%sb%
 if errorlevel 1 (goto accessdenied) else (title %appt%&goto completed)
 :accessdenied
 cls
